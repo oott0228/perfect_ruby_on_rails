@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :retirements, only: %i[new create]
 
   resources :events, only: %i[new create show edit update destroy] do
-    resources :tickets, %i[new create destroy]
+    resources :tickets, only: %i[new create destroy]
   end
 
   get "status" => "status#index", defaults: { format: 'json' }
